@@ -4,7 +4,7 @@
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 
-int mod=9;
+int mod=10;
 
 
 void init() {
@@ -23,23 +23,22 @@ void drawScene(float displacement) {
 	glClear(GL_COLOR_BUFFER_BIT);
 	int rand(); // random integers
 	// Stars
-	float cur_rand1[35], cur_rand2[35];
+	float cur_rand1[55], cur_rand2[55];
 	int i;
-	mod++;
 	if(mod%10==0) {
-		for(i=1;i<=30;i++) {
+		for(i=1;i<=50;i++) {
 			cur_rand1[i]=rand()%750;
 			cur_rand2[i]=rand()%750;
 		}
 	}
-	printf("%d",mod);
 	glPointSize(2.5);
 	glColor3f(1.0, 1.0, 1.0);
 	glBegin(GL_POINTS);
-		for (i = 1; i < 35; i++)
+		for (i = 1; i < 50; i++)
 			glVertex2f(cur_rand1[i], cur_rand2[i]);
 	glEnd();
-	
+	mod++;
+
 	// Body
 	glColor3f(226 / 255.0, 226 / 255.0, 72 / 255.0);
 	glBegin(GL_QUADS);
