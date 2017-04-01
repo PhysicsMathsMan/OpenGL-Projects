@@ -4,7 +4,7 @@
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 
-int mod=10;
+int mod=10;	// Used to reduce the star re-rendering rate.
 
 
 void init() {
@@ -25,10 +25,10 @@ void drawScene(float displacement) {
 	// Stars
 	float cur_rand1[55], cur_rand2[55];
 	int i;
-	if(mod%10==0) {
+	if(mod%10==0) {		// Reduces the no. of times stars are rendered.
 		for(i=1;i<=50;i++) {
 			cur_rand1[i]=rand()%750;
-			cur_rand2[i]=rand()%750;
+			cur_rand2[i]=rand()%750;	// Stores the points so they can be rendered the same in later calls, till modified.
 		}
 	}
 	glPointSize(2.5);
