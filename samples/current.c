@@ -1,3 +1,9 @@
+#include <GL/freeglut.h>
+#include <GL/gl.h>
+#include<stdlib.h>
+#include<math.h>
+
+
 void drawRocket(float x,float xcor,float ycor) {
     glClear(GL_COLOR_BUFFER_BIT);
     
@@ -47,4 +53,30 @@ void drawRocket(float x,float xcor,float ycor) {
     glEnd();
 
     glFlush();
+}
+
+
+
+void display(void) {
+    int x=80;
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+	glLineWidth(2.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0.0, 800.0, 0.0, 800.0);
+	//glutPostRedisplay();
+	drawRocket(x,500,100);
+}
+
+
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(500,500);
+    glutInitWindowPosition(0,0);
+    glutCreateWindow("OpenGL - First window demo");
+    glutDisplayFunc(display);
+    glutMainLoop();    
+    return 0;
 }
