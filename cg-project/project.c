@@ -3,7 +3,7 @@
 #include<time.h>
 #include <GL/freeglut.h>
 #include <GL/gl.h>
-#include"/home/k0nfig/Documents/openGL-projects/cg-project/scene1.c"
+#include"scenes/scene1.c"
 
 int mod=10;	// Used to reduce the star re-rendering rate.
 
