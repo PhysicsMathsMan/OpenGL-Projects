@@ -1,4 +1,7 @@
-void drawScene(float displacement, int mod) {
+int mod=10;	// Used to reduce the star re-rendering rate.
+
+
+void drawScene(float displacement) {
 	glClear(GL_COLOR_BUFFER_BIT);
 	int rand(); // random integers
 	// Stars
@@ -51,4 +54,19 @@ void drawScene(float displacement, int mod) {
 	glEnd();
 
 	glFlush();
+}
+
+
+void display1(void) {
+	float displacement = -500;
+	// Initialise seed with current time
+	srand(time(NULL));
+	while(displacement != 50)
+	{
+		drawScene(displacement);
+		displacement += 5;
+		mod++;
+		for (double delay = 0; delay <= 9000000; delay++);
+	}
+
 }
