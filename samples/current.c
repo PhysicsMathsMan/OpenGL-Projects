@@ -34,6 +34,13 @@ void drawRocket(float x,float xcor,float ycor) {
             glVertex2f(0.65*x+xcor,2.0*x+ycor);
             glVertex2f(0.7*x +xcor,1.0*x+ycor);
         glEnd();
+        
+        glColor3f(0.46, 0.46, 0.46);
+        char string[]="NASA";
+        for(i=0;i<4;i++) {
+            glRasterPos2f(0.5*x+xcor-13, 1*x+ycor*2+i*25);
+		    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,string[i]);
+        }
 
         // Rocket flames
         if(mod%5==0) {
