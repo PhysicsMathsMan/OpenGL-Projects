@@ -6,7 +6,7 @@
 
 
 void drawRocket(float x,float xcor,float ycor) {
- 
+
     int mod;
     for(int i=0;i<100000;i++) {
         glClear(GL_COLOR_BUFFER_BIT);
@@ -63,7 +63,7 @@ void drawRocket(float x,float xcor,float ycor) {
         glEnd();
         glFlush();
         mod++;
-        }
+    }
 }
 
 
@@ -76,7 +76,7 @@ void display(void) {
 	glLoadIdentity();
 	gluOrtho2D(0.0, 800.0, 0.0, 800.0);
 	//glutPostRedisplay();
-	drawRocket(x,500,100);
+    drawRocket(x, 500, 100);
 }
 
 
