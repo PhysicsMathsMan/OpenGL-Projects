@@ -7,7 +7,7 @@ using namespace std;
 GLfloat v[4][3]= {{0.0,0.0,1.0},{0,1,-1},{-0.8,-0.4,-1},{0.8,-0.4,-1}};
 int n;
 
-void triangle(GLfloat* a, GLfloat* b, GLfloat* c)
+void triangle(GLfloat* a, GLfloat* b, GLfloat* c)	// Prints one triange.
 {
 	glBegin(GL_POLYGON);
 	glVertex3fv(a);
@@ -29,19 +29,19 @@ void divide_triangle(GLfloat* a, GLfloat* b, GLfloat* c, int m)
 		divide_triangle(c,v2,v3,m-1);
 		divide_triangle(b,v3,v1,m-1);
 	}
-	else (triangle(a,b,c));
+	else (triangle(a,b,c));		// Goes on to print the triangle.
 }
 
 void tetrahedron(int m)
 {
-	glColor3f(1.0,0.0,0.0);
-	divide_triangle(v[0],v[1],v[2],m);
-	glColor3f(0.0,1.0,0.0);
-	divide_triangle(v[3],v[2],v[1],m);
-	glColor3f(0.0,0.0,1.0);
-	divide_triangle(v[0],v[3],v[1],m);
-	glColor3f(1.0,1.0,0.0);
-	divide_triangle(v[0],v[2],v[3],m);
+    glColor3f(0.0, 1.0, 0.0);
+    divide_triangle(v[3], v[2], v[1], m);
+    glColor3f(1.0, 0.0, 0.0);
+    divide_triangle(v[0], v[1], v[2], m);
+    glColor3f(0.0, 0.0, 1.0);
+    divide_triangle(v[0], v[3], v[1], m);
+    glColor3f(1.0, 1.0, 0.0);
+    divide_triangle(v[0], v[2], v[3], m);
 }
 
 void display()
@@ -72,14 +72,14 @@ int main(int argc, char* argv[])
 {
 	cout<<"Enter the number of divisions: ";
         cin>>n;
-	glutInit(&argc, argv);
+	glutInit(&argc, argv);		// Passing the addresses.
 	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB|GLUT_DEPTH);
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(0,0);
 	glutCreateWindow("3D Gasket");
 	glutReshapeFunc(reshape);
 	glutDisplayFunc(display);
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);	// Remove hidden surfaces.
 	glClearColor(1.0,1.0,1.0,1.0);
 	glutMainLoop();
 	return 0;

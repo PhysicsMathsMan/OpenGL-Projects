@@ -56,8 +56,17 @@ void drawScene(float displacement) {
 	glFlush();
 }
 
+void init() {
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glLineWidth(10.0);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0.0, 800.0, 0.0, 800.0);
+    glutPostRedisplay();
+}
 
 void display1(void) {
+
 	float displacement = -500;
 	// Initialise seed with current time
 	srand(time(NULL));

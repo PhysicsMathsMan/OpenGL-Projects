@@ -1,7 +1,6 @@
 void drawRocket(float x,float xcor,float ycor) {
-    glClear(GL_COLOR_BUFFER_BIT);
-    
     // Rocket body
+    //glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(0.96, 1.0, 1.0);
     glBegin(GL_QUADS);
         glVertex2f(0.3*x +xcor,2.0*x+ycor);
@@ -45,6 +44,5 @@ void drawRocket(float x,float xcor,float ycor) {
         glVertex2f(0.75*x +xcor,0.7*x+ycor);
         glVertex2f(0.7*x  +xcor,1.0*x+ycor);
     glEnd();
-
     glFlush();
 }
