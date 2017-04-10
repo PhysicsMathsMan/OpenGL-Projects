@@ -8,7 +8,7 @@ void drawRocket(float x, float xcor, float ycor)
 {
 
     int mod;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 100000; i++)
     {
         glClear(GL_COLOR_BUFFER_BIT);
         // Rocket body

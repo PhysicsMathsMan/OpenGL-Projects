@@ -3,22 +3,13 @@
 int moderator = 50;
 float cur_rand1[55], cur_rand2[55];
 
-void display_string(int x, int y, char *string, int font)
+void display_string(int x, int y, char *string)
 {
     int len, i;
     glRasterPos2f(x, y);
     len = (int)strlen(string);
     for (i = 0; i < len; i++)
-    {
-        if (font == 1)
-            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, string[i]);
-        if (font == 2)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, string[i]);
-        if (font == 3)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[i]);
-        if (font == 4)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10, string[i]);
-    }
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12, string[i]);
 }
 
 void drawStars()
@@ -93,11 +84,11 @@ void drawScene2()
         char string3[] = "Mesosphere";
         char string4[] = "Thermosphere";
         char string5[] = "Exosphere";
-        display_string(650, 125, string1, 3);
-        display_string(650, 300, string2, 3);
-        display_string(650, 450, string3, 3);
-        display_string(650, 600, string4, 3);
-        display_string(650, 785, string5, 3);
+        display_string(650, 125, string1);
+        display_string(650, 300, string2);
+        display_string(650, 450, string3);
+        display_string(650, 600, string4);
+        display_string(650, 785, string5);
 
         glColor3f(0.627, 0.32, 0.17);
         glBegin(GL_TRIANGLES);
