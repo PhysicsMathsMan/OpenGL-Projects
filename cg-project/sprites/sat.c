@@ -1,9 +1,3 @@
-#include <GL/freeglut.h>
-#include <GL/gl.h>
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
-
 void drawSat(int x, int y, float scale)
 {
     glClear(GL_COLOR_BUFFER_BIT);
@@ -40,29 +34,4 @@ void drawSat(int x, int y, float scale)
     glEnd();
 
     glFlush();
-}
-
-void display(void)
-{
-    int x = 80;
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glLineWidth(10.0);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0.0, 800.0, 0.0, 800.0);
-    //glutPostRedisplay();
-    drawSat(400, 400, 0.5);
-    glFlush();
-}
-
-int main(int argc, char **argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(500, 500);
-    glutInitWindowPosition(0, 0);
-    glutCreateWindow("OpenGL - First window demo");
-    glutDisplayFunc(display);
-    glutMainLoop();
-    return 0;
 }
